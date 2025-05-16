@@ -15,8 +15,9 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(cors({
-  origin: 'http://localhost:5173', // Or '*' for testing
-  credentials: true,
+  origin: 'http://localhost:5173', // or use "*" for public APIs
+  credentials: true,               // if you're using cookies or auth headers
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 }));
 
