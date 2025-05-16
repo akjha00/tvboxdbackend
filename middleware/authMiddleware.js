@@ -4,9 +4,9 @@ function authenticateToken(req, res, next) {
   console.log("at auth");
   console.log(req);
   const authHeader = req.headers['authorization'];
-  console.log("header: " authHeader);
+  console.log("header: " + authHeader);
   const token = authHeader?.split(' ')[1];
-  console.log("token: " token);
+  console.log("token: " + token);
 
   if (!token) return res.sendStatus(401);
 
