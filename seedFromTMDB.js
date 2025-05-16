@@ -6,8 +6,8 @@ const { mapGenreIdsToNames } = require('./utils/mapGenres');
 // PostgreSQL pool setup
 const pool = new Pool({
   user: process.env.DB_USER,
-  host: 'localhost',
-  database:'postgres',
+  host: process.env.DB_HOST,
+  database:process.env.DB_NAME,
   password: process.env.DB_PASS,
   port: 5432,
 });
