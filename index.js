@@ -15,7 +15,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(cors({
-  origin: '*', // Or '*' for testing
+  origin: 'http://localhost:5173', // Or '*' for testing
   credentials: true,
   allowedHeaders: ['Content-Type', 'Authorization'],
 }));
