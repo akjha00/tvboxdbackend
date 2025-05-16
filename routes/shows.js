@@ -8,6 +8,9 @@ const pool = new Pool({
   database: process.env.DB_NAME,
   password: process.env.DB_PASS,
   port: 5432,
+  ssl: {
+    rejectUnauthorized: false, // Required for Render's managed Postgres
+  },
 });
 
 // GET /api/shows?page=1&limit=20

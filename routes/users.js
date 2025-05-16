@@ -11,6 +11,9 @@ const pool = new Pool({
   database: process.env.DB_NAME,
   password: process.env.DB_PASS,
   port: 5432,
+  ssl: {
+    rejectUnauthorized: false, // Required for Render's managed Postgres
+  },
 });
 
 const JWT_SECRET = process.env.JWT_SECRET || 'supersecret';
