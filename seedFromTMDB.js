@@ -10,12 +10,15 @@ const pool = new Pool({
   database:process.env.DB_NAME,
   password: process.env.DB_PASS,
   port: 5432,
+  ssl: {
+    rejectUnauthorized: false, // Required for Render's managed Postgres
+  },
 });
 
 // Function to fetch and insert shows
 const fetchAndStoreShows = async () => {
   try {
-    for (let page = 3; page <= 500; page++) { // Fetch 5 pages (100 shows)
+    for (let page = 1; page <= 500; page++) { // Fetch 5 pages (100 shows)
       console.log(`📄 Fetching page ${page}...`);
       const response = await axios.get('https://api.themoviedb.org/3/tv/popular', {
         params: {
