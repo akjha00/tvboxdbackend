@@ -14,7 +14,11 @@ const profileRoutes = require('./routes/profile');
 const app = express();
 const port = process.env.PORT || 3000;
 
-app.use(cors());
+app.use(cors({
+  origin: '*', // Or '*' for testing
+  credentials: true,
+}));
+
 app.use(express.json());
 
 // Mount the shows router at /api/shows
