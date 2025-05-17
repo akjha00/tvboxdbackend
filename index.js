@@ -14,13 +14,7 @@ const profileRoutes = require('./routes/profile');
 const app = express();
 const port = process.env.PORT || 3000;
 
-app.use(cors({
-  origin: 'http://localhost:5173', // or use "*" for public APIs
-  credentials: true,               // if you're using cookies or auth headers
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-}));
-
+app.use(cors());
 app.use(express.json());
 
 // Mount the shows router at /api/shows

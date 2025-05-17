@@ -17,7 +17,6 @@ const pool = new Pool({
 // Get current user's profile
 router.get('/me', authenticate, async (req, res) => {
   try {
-    console.log("at me");
     const result = await pool.query(
       'SELECT * FROM profiles WHERE user_id = $1',
       [req.user.userId]
